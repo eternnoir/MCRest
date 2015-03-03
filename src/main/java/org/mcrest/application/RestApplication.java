@@ -2,6 +2,7 @@ package org.mcrest.application;
 
 
 import org.mcrest.application.resources.MainResource;
+import org.mcrest.application.resources.PlayerResource;
 import org.restlet.Application;
 import org.restlet.Restlet;
 import org.restlet.routing.Router;
@@ -16,6 +17,7 @@ public class RestApplication extends Application {
         // new instance of HelloWorldResource.
         Router router = new Router(getContext());
         router.attach("/", MainResource.class);
+        router.attach("/player/", PlayerResource.class);
         return router;
     }
 }
