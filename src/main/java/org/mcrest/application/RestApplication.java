@@ -1,7 +1,7 @@
 package org.mcrest.application;
 
 
-import org.mcrest.application.controller.MainController;
+import org.mcrest.application.resources.MainResource;
 import org.restlet.Application;
 import org.restlet.Restlet;
 import org.restlet.routing.Router;
@@ -15,7 +15,7 @@ public class RestApplication extends Application {
         // Create a router Restlet that routes each call to a
         // new instance of HelloWorldResource.
         Router router = new Router(getContext());
-        router.attach("/", MainController.class);
+        router.attach("/", MainResource.class);
         return router;
     }
 }
