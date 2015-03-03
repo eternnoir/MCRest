@@ -1,0 +1,5 @@
+ name: McREST
+ version: 0.1
+ description: This plugin is so 31337. You can set yourself on fire.
+ author: FrankWang
+ main: org.mcrest.McRest

@@ -1,33 +1,31 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.2.RELEASE")
-    }
-}
-
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'spring-boot'
 
 sourceCompatibility = 1.5
-version = '1.0'
+version = '0.1'
+
 
 repositories {
     mavenCentral()
+    maven { url "http://maven.restlet.org" }
 }
 
 dependencies {
     compile files('libs/spigot.jar')
 }
 
-dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("junit:junit")
-}
+ext.restletVersion = "2.1.2"
 
 dependencies {
+    compile "org.restlet.jee:org.restlet:${restletVersion}"
+    compile "org.restlet.jee:org.restlet.ext.jackson:${restletVersion}"
+    compile "org.restlet.jee:org.restlet.ext.jaxrs:${restletVersion}"
     testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+task fatJar(type: Jar) {
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
