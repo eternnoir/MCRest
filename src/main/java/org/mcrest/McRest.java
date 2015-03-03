@@ -2,6 +2,7 @@ package org.mcrest;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import org.mcrest.application.RestApplication;
+import org.mcrest.server.BukkitServer;
 import org.restlet.Component;
 import org.restlet.data.Protocol;
 
@@ -14,6 +15,8 @@ public class McRest extends JavaPlugin {
     @Override
     public void onEnable(){
         this.getLogger().info("Enable");
+        // Set Bukkit Server.
+        ServerManager.getInstance().setServer(new BukkitServer());
         try{
             startServices();
             this.getLogger().info("Rest start success.");

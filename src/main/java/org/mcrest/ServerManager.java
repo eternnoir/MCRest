@@ -27,9 +27,15 @@ public class ServerManager {
      * @param server
      */
     public void setServer(IServer server){
-        this.server = server;
+        synchronized (ServerManager.class) {
+            this.server = server;
+        }
     }
 
+    /**
+     * Server Getter.
+     * @return
+     */
     public IServer getServer() {
         return server;
     }
