@@ -13,8 +13,6 @@ import org.restlet.routing.Router;
 public class RestApplication extends Application {
     @Override
     public synchronized Restlet createInboundRoot() {
-        // Create a router Restlet that routes each call to a
-        // new instance of HelloWorldResource.
         Router router = new Router(getContext());
         router.attach("/", MainResource.class);
         router.attach("/player/", PlayerResource.class);
