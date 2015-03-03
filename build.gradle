@@ -20,6 +20,10 @@ repositories {
 }
 
 dependencies {
+    compile files('libs/spigot.jar')
+}
+
+dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile("junit:junit")
 }
