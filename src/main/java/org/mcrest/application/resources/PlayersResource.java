@@ -13,7 +13,7 @@ import java.util.ArrayList;
 /**
  * Created by frank on 2015/3/3.
  */
-public class PlayerResource extends ServerResource {
+public class PlayersResource extends ServerResource {
     String userName;
 
     Object player;

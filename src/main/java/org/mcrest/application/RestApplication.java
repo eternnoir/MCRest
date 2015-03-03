@@ -2,7 +2,7 @@ package org.mcrest.application;
 
 
 import org.mcrest.application.resources.MainResource;
-import org.mcrest.application.resources.PlayerResource;
+import org.mcrest.application.resources.PlayersResource;
 import org.restlet.Application;
 import org.restlet.Restlet;
 import org.restlet.routing.Router;
@@ -15,7 +15,7 @@ public class RestApplication extends Application {
     public synchronized Restlet createInboundRoot() {
         Router router = new Router(getContext());
         router.attach("/", MainResource.class);
-        router.attach("/player/", PlayerResource.class);
+        router.attach("/player", PlayersResource.class);
         return router;
     }
 }
