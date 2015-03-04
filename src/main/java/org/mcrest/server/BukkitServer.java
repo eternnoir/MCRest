@@ -1,9 +1,11 @@
 package org.mcrest.server;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.mcrest.entity.Player;
+import org.mcrest.utils.PlayerHelper;
 
-import java.util.Collection;
+import java.util.*;
 
 /**
  * The Server bukkit version,
@@ -11,14 +13,21 @@ import java.util.Collection;
  */
 public class BukkitServer implements IServer {
     @Override
-    public Player[] getPlayers() {
+    public Collection<? extends Player>  getPlayers() {
         // TODO not imp.
-        return new Player[0];
+        return null;
     }
 
     @Override
-    public Player[] getOnlinePlayers() {
-        Collection<? extends org.bukkit.entity.Player> onlinePlayers = Bukkit.getOnlinePlayers();
-        return new Player[0];
+    public Collection<? extends Player> getOnlinePlayers() {
+        Collection<? extends org.bukkit.OfflinePlayer> onlinePlayers = Bukkit.getOnlinePlayers();
+        return PlayerHelper.convertBukkitPlayerToMcRest(onlinePlayers);
+    }
+
+    @Override
+    public Collection<? extends Player> getOfflinePlayers() {
+        Collection<? extends org.bukkit.OfflinePlayer> offlinePlayers =
+                new ArrayList<OfflinePlayer>(Arrays.asList(Bukkit.getOfflinePlayers()));
+        return PlayerHelper.convertBukkitPlayerToMcRest(offlinePlayers);
     }
 }

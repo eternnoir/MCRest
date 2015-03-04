@@ -1,5 +1,7 @@
 package org.mcrest.entity;
 
+import org.bukkit.OfflinePlayer;
+
 import java.io.Serializable;
 
 /**
@@ -8,13 +10,16 @@ import java.io.Serializable;
  * Created by frank on 2015/3/3.
  */
 public class Player implements Serializable {
-    private String displayName;
+    private String name;
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public Player(OfflinePlayer bukkitPlayer){
+        this.name= bukkitPlayer.getName();
+    }
+    public String getName() {
+        return name;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public void setName(String name) {
+        this.name = name;
     }
 }
