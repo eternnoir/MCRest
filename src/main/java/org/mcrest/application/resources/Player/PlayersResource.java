@@ -1,5 +1,6 @@
-package org.mcrest.application.resources;
+package org.mcrest.application.resources.Player;
 
+import org.bukkit.Bukkit;
 import org.mcrest.ServerManager;
 import org.mcrest.entity.Player;
 import org.restlet.ext.jackson.JacksonRepresentation;
@@ -12,13 +13,9 @@ import java.util.Collection;
  * Created by frank on 2015/3/3.
  */
 public class PlayersResource extends ServerResource {
-    String userName;
-
-    Object player;
-
+    private Object player;
     @Override
     public void doInit() {
-        this.userName = getAttribute("user");
         this.player = null; // Could be a lookup to a domain object.
     }
 
