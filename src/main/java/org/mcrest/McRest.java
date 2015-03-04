@@ -10,8 +10,6 @@ import org.restlet.data.Protocol;
  * Created by frank on 2015/3/3.
  */
 public class McRest extends JavaPlugin {
-
-
     @Override
     public void onEnable(){
         this.getLogger().info("Enable");
@@ -24,10 +22,9 @@ public class McRest extends JavaPlugin {
             this.getLogger().warning(e.toString());
         }
     }
-
     @Override
     public void onDisable(){
-
+        this.getLogger().info("Enable");
     }
 
     public void startServices() throws Exception {
