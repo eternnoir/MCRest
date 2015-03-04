@@ -3,6 +3,7 @@ package org.mcrest.server;
 import org.mcrest.entity.Player;
 
 import java.util.Collection;
+import java.util.logging.Logger;
 
 /**
  * Created by frank on 2015/3/3.
@@ -21,4 +22,6 @@ public interface IServer {
     public Collection<? extends Player> getOnlinePlayers();
 
     public Collection<? extends Player> getOfflinePlayers();
+
+    public Logger getLogger();
 }

@@ -6,6 +6,7 @@ import org.mcrest.entity.Player;
 import org.mcrest.utils.PlayerHelper;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 /**
  * The Server bukkit version,
@@ -29,5 +30,10 @@ public class BukkitServer implements IServer {
         Collection<? extends org.bukkit.OfflinePlayer> offlinePlayers =
                 new ArrayList<OfflinePlayer>(Arrays.asList(Bukkit.getOfflinePlayers()));
         return PlayerHelper.convertBukkitPlayerToMcRest(offlinePlayers);
+    }
+
+    @Override
+    public Logger getLogger() {
+        return Bukkit.getLogger();
     }
 }
