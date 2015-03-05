@@ -6,4 +6,6 @@ before_install:
   - sudo apt-get install -qq wget git
   - sh preBuild.sh
 install: ./gradlew fatjar
-script: ./gradlew check
+script:
+  - ./gradlew check
+  - sh runTest.sh
