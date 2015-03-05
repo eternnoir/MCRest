@@ -16,14 +16,19 @@ public class PlayerHelper {
         for(OfflinePlayer bPlayer : bukkitPlayers){
             // If play is online player, cast to online player.
             // Bad way. Should be refactor it.
-            if (bPlayer instanceof org.bukkit.entity.Player) {
-                players.add(new OnlinePlayer((org.bukkit.entity.Player)bPlayer));
-            }
-            else {
-                players.add(new Player(bPlayer));
-            }
+            players.add(convertToPlayer(bPlayer));
         }
         return players;
     }
+
+    public static Player convertToPlayer(OfflinePlayer bukkitPlayer){
+        if(bukkitPlayer.getPlayer()!=null){
+            return new OnlinePlayer(bukkitPlayer.getPlayer());
+        }
+        else {
+            return new Player(bukkitPlayer);
+        }
+    }
+
 
 }
