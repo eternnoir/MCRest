@@ -13,24 +13,46 @@ import java.util.UUID;
 public class Player implements Serializable {
     private String name;
     private UUID uniqueId;
+    private boolean online;
+    private boolean whitelisted;
+    private boolean banned;
+    private long firstPlayed;
+    private long lastPlayed;
+
 
     public Player(OfflinePlayer bukkitPlayer){
         this.name= bukkitPlayer.getName();
         this.uniqueId= bukkitPlayer.getUniqueId();
-    }
-    public String getName() {
-        return name;
+        this.online = bukkitPlayer.isOnline();
+        this.whitelisted = bukkitPlayer.isWhitelisted();
+        this.banned = bukkitPlayer.isBanned();
+        this.firstPlayed = bukkitPlayer.getFirstPlayed();
+        this.lastPlayed = bukkitPlayer.getLastPlayed();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Player(){}
+
+    public String getName() {
+        return name;
     }
 
     public UUID getUniqueId() {
         return uniqueId;
     }
 
-    public void setUniqueId(UUID uniqueId) {
-        this.uniqueId = uniqueId;
+    public boolean isOnline() {
+        return online;
+    }
+
+    public boolean isWhitelisted() {
+        return whitelisted;
+    }
+
+    public boolean isBanned() {
+        return banned;
+    }
+
+    public long getFirstPlayed() {
+        return firstPlayed;
     }
 }

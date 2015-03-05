@@ -41,6 +41,7 @@ public class BukkitServer implements IServer {
     public Collection<? extends Player> getOfflinePlayers() {
         Collection<? extends org.bukkit.OfflinePlayer> offlinePlayers =
                 new ArrayList<OfflinePlayer>(Arrays.asList(Bukkit.getOfflinePlayers()));
+
         return PlayerHelper.convertBukkitPlayerToMcRest(offlinePlayers);
     }
 
