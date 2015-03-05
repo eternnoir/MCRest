@@ -4,6 +4,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
+ * This is mcrest config handler. All mcrest needed config para are store here.
  * Created by frank on 2015/3/5.
  */
 public class ConfigHandler {
@@ -40,9 +41,11 @@ public class ConfigHandler {
     }
 
     public void setPort(int port) {
-        plugin.getConfig().set("port", port);
-        this.port = port;
-        plugin.saveConfig();
+        synchronized (this){
+            plugin.getConfig().set("port", port);
+            this.port = port;
+            plugin.saveConfig();
+        }
     }
 
     public int getPort() {
@@ -54,9 +57,11 @@ public class ConfigHandler {
     }
 
     public void setPrefix(String prefix) {
-        plugin.getConfig().set("prefix",prefix);
-        this.prefix = prefix;
-        plugin.saveConfig();
+        synchronized (this) {
+            plugin.getConfig().set("prefix", prefix);
+            this.prefix = prefix;
+            plugin.saveConfig();
+        }
     }
 
     public void saveConfig(){
