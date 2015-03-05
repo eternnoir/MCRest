@@ -4,6 +4,8 @@ jdk:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq wget git
+  - sudo pip install requests
   - sh preBuild.sh
 install: ./gradlew fatjar
-script: ./gradlew check
+script:
+  - ./gradlew check
