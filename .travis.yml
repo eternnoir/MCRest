@@ -9,3 +9,4 @@ before_install:
 install: ./gradlew fatjar
 script:
   - ./gradlew check
+  - sh runTest.sh
