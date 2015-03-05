@@ -15,20 +15,7 @@ import java.util.logging.Logger;
 public class BukkitServer implements IServer {
     @Override
     public Collection<? extends Player>  getPlayers() {
-        HashMap<UUID,Player> playerMap = new HashMap<UUID, Player>();
-        // Add online player first.
-        for(Player player:getOnlinePlayers()){
-            if(!playerMap.containsKey(player.getUniqueId())){
-                playerMap.put(player.getUniqueId(),player);
-            }
-        }
-        // Then add offline player.
-        for(Player player:getOfflinePlayers()){
-            if(!playerMap.containsKey(player.getUniqueId())){
-                playerMap.put(player.getUniqueId(),player);
-            }
-        }
-        return playerMap.values();
+        return getOfflinePlayers();
     }
 
     @Override
@@ -41,8 +28,17 @@ public class BukkitServer implements IServer {
     public Collection<? extends Player> getOfflinePlayers() {
         Collection<? extends org.bukkit.OfflinePlayer> offlinePlayers =
                 new ArrayList<OfflinePlayer>(Arrays.asList(Bukkit.getOfflinePlayers()));
-
         return PlayerHelper.convertBukkitPlayerToMcRest(offlinePlayers);
+    }
+
+    @Override
+    public Player getPlayer(String playerName) {
+        OfflinePlayer bukkitPlayer = Bukkit.getOfflinePlayer(playerName);
+        Player player = null;
+        if( bukkitPlayer!=null){
+            player= PlayerHelper.convertToPlayer(bukkitPlayer);
+        }
+        return player;
     }
 
     @Override

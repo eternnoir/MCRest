@@ -23,5 +23,7 @@ public interface IServer {
 
     public Collection<? extends Player> getOfflinePlayers();
 
+    public Player getPlayer(String playerName);
+
     public Logger getLogger();
 }
