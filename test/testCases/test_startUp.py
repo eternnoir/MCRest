@@ -8,8 +8,8 @@ class TestPluginStart(unittest.TestCase):
     def setUp(self):
         self.thread = mcserver.MinecraftServerThread()
         self.thread.start()
-        print "sleep 10 sec"
-        sleep(10)
+        print "sleep 90 sec"
+        sleep(90)
     def tearDown(self):
         self.thread.stop()
 
