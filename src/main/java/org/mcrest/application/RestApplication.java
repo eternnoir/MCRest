@@ -2,6 +2,7 @@ package org.mcrest.application;
 
 
 import org.mcrest.application.resources.MainResource;
+import org.mcrest.application.resources.Player.PlayerResourece;
 import org.mcrest.application.resources.Player.PlayersResource;
 import org.restlet.Application;
 import org.restlet.Restlet;
@@ -16,6 +17,7 @@ public class RestApplication extends Application {
         Router router = new Router(getContext());
         router.attach("/", MainResource.class);
         router.attach("/player", PlayersResource.class);
+        router.attach("/player/{{name}}", PlayerResourece.class);
         return router;
     }
 }
