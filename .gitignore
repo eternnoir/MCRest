@@ -2,6 +2,7 @@
 
 *.iml
 *.pyc
+*.swp
 
 testDir
 ## Directory-based project format:
