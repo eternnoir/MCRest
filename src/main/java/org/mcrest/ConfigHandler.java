@@ -25,6 +25,10 @@ public class ConfigHandler {
         return instance;
     }
 
+    /**
+     * Set Config value by bukkit plugin.
+     * @param bukkitplugin
+     */
     public void setConfigByPlugin(JavaPlugin bukkitplugin){
         this.plugin= bukkitplugin;
         if(!plugin.getConfig().contains("port")){
@@ -40,6 +44,10 @@ public class ConfigHandler {
         }
     }
 
+    /**
+     * Set mcrest listen port.
+     * @param port
+     */
     public void setPort(int port) {
         synchronized (this){
             plugin.getConfig().set("port", port);
