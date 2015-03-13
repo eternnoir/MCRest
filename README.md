@@ -5,6 +5,23 @@ Minecraft REST API Bukkit plugin.
 
 Put plugin .jar to your bukkit server's plugin file.
 
+### Build your self.
+
+Download project or use git clone it.
+
+```
+$ git clone https://github.com/eternnoir/MCRest.git
+$ cd MCRest
+```
+
+Run build script.
+
+```
+$ sh ./preBuild.sh
+```
+
+The MCrest plugin .jar file will store in **./build/libs/MCREST-all-*.jar**
+
 ## How to Use
 Start Server, you will see some information.
 

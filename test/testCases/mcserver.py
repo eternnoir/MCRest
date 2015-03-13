@@ -7,7 +7,7 @@ class MinecraftServerThread(threading.Thread):
 
     def run(self):
         import subprocess
-        cmd = ['java', '-jar', 'spigot-1.8.jar']
+        cmd = ['java', '-jar', 'spigot.jar']
         self.process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
         for line in self.process.stdout:
             line = line
