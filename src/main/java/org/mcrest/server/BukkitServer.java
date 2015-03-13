@@ -3,7 +3,9 @@ package org.mcrest.server;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.mcrest.entity.Player;
+import org.mcrest.entity.World;
 import org.mcrest.utils.PlayerHelper;
+import org.mcrest.utils.WorldHelper;
 
 import java.util.*;
 import java.util.logging.Logger;
@@ -16,6 +18,12 @@ public class BukkitServer implements IServer {
     @Override
     public Collection<? extends Player>  getPlayers() {
         return getOfflinePlayers();
+    }
+
+    @Override
+    public Collection<? extends World> getWorlds() {
+        Collection<? extends org.bukkit.World> bworlds = Bukkit.getWorlds();
+        return WorldHelper.ConvertBukkitWorldToRest(bworlds);
     }
 
     @Override

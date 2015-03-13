@@ -1,6 +1,7 @@
 package org.mcrest.server;
 
 import org.mcrest.entity.Player;
+import org.mcrest.entity.World;
 
 import java.util.Collection;
 import java.util.logging.Logger;
@@ -14,6 +15,7 @@ public interface IServer {
      * @return
      */
     public Collection<? extends Player>  getPlayers();
+    public Collection<? extends World>  getWorlds();
 
     /**
      * Get online players only.
