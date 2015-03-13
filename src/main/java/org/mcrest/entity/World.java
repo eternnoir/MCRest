@@ -26,6 +26,8 @@ public class World implements Serializable {
         this.allowMonsters = world.getAllowMonsters();
         this.gameRules = world.getGameRules();
         this.name = world.getName();
+        this.thundering = world.isThundering();
+        this.storm = world.hasStorm();
         this.players =new ArrayList<Player>(PlayerHelper.convertBukkitPlayerToMcRest(world.getPlayers()));
     }
 

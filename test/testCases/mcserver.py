@@ -11,7 +11,7 @@ class MinecraftServerThread(threading.Thread):
         cmd = ['java', '-jar', 'spigot.jar']
         self.process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
         for line in self.process.stdout:
-            line = line
+            print line
 
     def stop(self):
         if self.process is not None:

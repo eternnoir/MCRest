@@ -6,3 +6,4 @@ cp ./tmp/spigot-1.8.3.jar ./testDir/spigot.jar
 cp ./build/libs/MCREST-all*.jar ./testDir/plugins
 cd ./testDir
 python2 ../test/testRun.py
+cat testDir/logs/latest.log
