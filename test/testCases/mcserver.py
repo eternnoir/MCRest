@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import threading
+from time import sleep
 class MinecraftServerThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -17,5 +18,6 @@ class MinecraftServerThread(threading.Thread):
         if self.process is not None:
             self.process.terminate()
             self.process = None
+        sleep(10)
 
 
