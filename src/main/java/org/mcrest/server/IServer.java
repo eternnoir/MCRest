@@ -1,6 +1,7 @@
 package org.mcrest.server;
 
 import org.mcrest.entity.Player;
+import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
 
 import java.util.Collection;
@@ -10,6 +11,9 @@ import java.util.logging.Logger;
  * Created by frank on 2015/3/3.
  */
 public interface IServer {
+
+    public ServerStatus getServerStatus();
+
     /**
      * Get all players. Contain offline and online.
      * @return
