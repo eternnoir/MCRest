@@ -19,8 +19,17 @@ class TestPluginStart(unittest.TestCase):
         cls.thread.stop()
         cls.thread.join()
         print "Thread stoped"
+
     def test_up(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/"
         result = requests.get(plugin_url).text
         self.assertEquals("Hello MCRest.", result);
+
+    def test_getWorld(self):
+        plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
+            + "world"
+        result = requests.get(plugin_url).text
+        worlds = json.loads(result);
+        self.assertEquals(len(worlds), 3);
+
 

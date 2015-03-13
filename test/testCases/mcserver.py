@@ -17,6 +17,3 @@ class MinecraftServerThread(threading.Thread):
         if self.process is not None:
             self.process.terminate()
             self.process = None
-        sleep(10)
-
-
