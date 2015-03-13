@@ -1,4 +1,4 @@
-package org.mcrest.application.resources.Player;
+package org.mcrest.application.resources.player;
 
 import org.mcrest.ServerManager;
 import org.mcrest.entity.Player;

@@ -1,6 +1,5 @@
-package org.mcrest.application.resources.Player;
+package org.mcrest.application.resources.player;
 
-import org.bukkit.Bukkit;
 import org.mcrest.ServerManager;
 import org.mcrest.entity.Player;
 import org.restlet.ext.jackson.JacksonRepresentation;

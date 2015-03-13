@@ -2,8 +2,8 @@ package org.mcrest.application;
 
 
 import org.mcrest.application.resources.MainResource;
-import org.mcrest.application.resources.Player.PlayerResourece;
-import org.mcrest.application.resources.Player.PlayersResource;
+import org.mcrest.application.resources.player.PlayerResourece;
+import org.mcrest.application.resources.player.PlayersResource;
 import org.restlet.Application;
 import org.restlet.Restlet;
 import org.restlet.routing.Router;
