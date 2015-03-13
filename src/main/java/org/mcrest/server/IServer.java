@@ -15,6 +15,11 @@ public interface IServer {
      * @return
      */
     public Collection<? extends Player>  getPlayers();
+
+    /**
+     * Get server's world list.
+     * @return worlds
+     */
     public Collection<? extends World>  getWorlds();
 
     /**
@@ -23,8 +28,17 @@ public interface IServer {
      */
     public Collection<? extends Player> getOnlinePlayers();
 
+    /**
+     * Get offline players, but it will contain online player.
+     * @return
+     */
     public Collection<? extends Player> getOfflinePlayers();
 
+    /**
+     * Get player by player name or uuid.
+     * @param playerName or uuid
+     * @return Player, if not found will return null.
+     */
     public Player getPlayer(String playerName);
 
     public Logger getLogger();
