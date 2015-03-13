@@ -10,6 +10,7 @@ import org.restlet.resource.ServerResource;
 import java.util.logging.Logger;
 
 /**
+ * The Player resource. Can get player by player name or player's uuid.
  * Created by frank on 2015/3/5.
  */
 public class PlayerResourece extends ServerResource  {
