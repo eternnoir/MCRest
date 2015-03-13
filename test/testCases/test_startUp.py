@@ -5,14 +5,20 @@ import config
 import mcserver
 from time import sleep
 class TestPluginStart(unittest.TestCase):
-    def setUp(self):
-        self.thread = mcserver.MinecraftServerThread()
-        self.thread.start()
+
+    @classmethod
+    def setUpClass(cls):
+        cls.thread = mcserver.MinecraftServerThread()
+        cls.thread.start()
         print "sleep 30 sec"
         sleep(30)
-    def tearDown(self):
-        self.thread.stop()
 
+    @classmethod
+    def tearDownClass(cls):
+        print "Trying to stop thread "
+        cls.thread.stop()
+        cls.thread.join()
+        print "Thread stoped"
     def test_up(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/"
         result = requests.get(plugin_url).text

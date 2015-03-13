@@ -13,7 +13,10 @@ class TestGetWorld(unittest.TestCase):
         sleep(30)
     @classmethod
     def tearDownClass(cls):
+        print "Trying to stop thread "
         cls.thread.stop()
+        cls.thread.join()
+        print "Thread Stoped"
 
     def test_getWorld(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
