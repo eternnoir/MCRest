@@ -12,10 +12,8 @@ import java.util.Collection;
  * Created by frank on 2015/3/3.
  */
 public class PlayersResource extends ServerResource {
-    private Object player;
     @Override
     public void doInit() {
-        this.player = null; // Could be a lookup to a domain object.
     }
 
     @Get("json")
