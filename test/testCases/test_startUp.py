@@ -10,8 +10,8 @@ class TestPluginStart(unittest.TestCase):
     def setUpClass(cls):
         cls.thread = mcserver.MinecraftServerThread()
         cls.thread.start()
-        print "sleep 30 sec"
-        sleep(30)
+        print "sleep 90 sec"
+        sleep(90)
 
     @classmethod
     def tearDownClass(cls):
