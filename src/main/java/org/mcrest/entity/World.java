@@ -13,9 +13,13 @@ import java.util.List;
 public class World implements Serializable {
     private boolean allowAnimals;
     private boolean allowMonsters;
+    private boolean	thundering;
+    private boolean	storm;
+
     private String[] gameRules;
     private String	name;
     private List<Player> players;
+
 
     public World(org.bukkit.World world){
         this.allowAnimals = world.getAllowAnimals();
@@ -43,5 +47,13 @@ public class World implements Serializable {
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public boolean isThundering() {
+        return thundering;
+    }
+
+    public boolean isStorm() {
+        return storm;
     }
 }
