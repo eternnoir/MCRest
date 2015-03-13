@@ -16,7 +16,7 @@ class MinecraftServerThread(threading.Thread):
     def stop(self):
         print "Trying to stop thread "
         if self.process is not None:
-            self.process.kill()
+            self.process.terminate()
             self.process = None
         sleep(10)
 
