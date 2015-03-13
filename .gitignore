@@ -4,6 +4,9 @@
 *.pyc
 *.swp
 
+.ropeproject
+
+
 testDir
 ## Directory-based project format:
 .idea/
