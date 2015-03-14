@@ -3,7 +3,7 @@ Minecraft REST API Bukkit plugin.
 
 ## How to install
 
-Put plugin .jar to your bukkit server's plugin file.
+Put plugin's .jar file to your bukkit server's plugins dictionary.
 
 ### Build yourself.
 
