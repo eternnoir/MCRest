@@ -24,7 +24,7 @@ class TestPluginStart(unittest.TestCase):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/"
         result = requests.get(plugin_url).text
         server = json.loads(result);
-        self.assertTrue("GGGGG" in server['name'])
+        self.assertTrue("Bukkit" in server['name'])
 
     def test_getWorld(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
