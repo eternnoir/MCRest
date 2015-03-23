@@ -42,6 +42,11 @@ public class ConfigHandler {
         }else {
             setPrefix(plugin.getConfig().getString("prefix"));
         }
+        if(!plugin.getConfig().contains("auth.enable")){
+            setAuth(false,"mcrest","mcrest");
+        }else {
+            //TODO not yet
+        }
     }
 
     /**
@@ -69,6 +74,15 @@ public class ConfigHandler {
             plugin.getConfig().set("prefix", prefix);
             this.prefix = prefix;
             plugin.saveConfig();
+        }
+    }
+
+    public void setAuth(Boolean enable,String user,String password){
+        synchronized (this){
+            plugin.getConfig().set("auth.enable",false);
+            plugin.getConfig().set("auth.user",user);
+            plugin.getConfig().set("auth.passworld",password);
+            this.saveConfig();
         }
     }
 
