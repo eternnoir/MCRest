@@ -50,4 +50,12 @@ public class AuthPara {
     public Map<String,Boolean> getProtectedResourceMap(){
         return this.protectedResources;
     }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
