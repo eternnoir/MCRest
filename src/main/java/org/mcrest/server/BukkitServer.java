@@ -3,6 +3,7 @@ package org.mcrest.server;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.mcrest.entity.Player;
+import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
 import org.mcrest.utils.PlayerHelper;
 import org.mcrest.utils.WorldHelper;
@@ -15,6 +16,11 @@ import java.util.logging.Logger;
  * Created by frank on 2015/3/3.
  */
 public class BukkitServer implements IServer {
+    @Override
+    public ServerStatus getServerStatus() {
+        return new ServerStatus(Bukkit.getServer());
+    }
+
     @Override
     public Collection<? extends Player>  getPlayers() {
         return getOfflinePlayers();

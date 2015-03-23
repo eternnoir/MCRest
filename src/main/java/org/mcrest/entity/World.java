@@ -5,6 +5,7 @@ import org.mcrest.utils.PlayerHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * This is a mcrest ues world class. It has subset member from bukkit world.
@@ -18,6 +19,7 @@ public class World implements Serializable {
 
     private String[] gameRules;
     private String	name;
+    private UUID uuid;
     private List<Player> players;
 
 
@@ -28,6 +30,7 @@ public class World implements Serializable {
         this.name = world.getName();
         this.thundering = world.isThundering();
         this.storm = world.hasStorm();
+        this.uuid = world.getUID();
         this.players =new ArrayList<Player>(PlayerHelper.convertBukkitPlayerToMcRest(world.getPlayers()));
     }
 
@@ -57,5 +60,9 @@ public class World implements Serializable {
 
     public boolean isStorm() {
         return storm;
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 }

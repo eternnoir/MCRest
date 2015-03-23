@@ -16,10 +16,18 @@ public class RestApplication extends Application {
     @Override
     public synchronized Restlet createInboundRoot() {
         Router router = new Router(getContext());
+        setUpRouter(router);
+        return router;
+    }
+
+    /**
+     * Set up Resource to routing.
+     * @param router
+     */
+    private void setUpRouter(Router router) {
         router.attach("/", MainResource.class);
         router.attach("/player", PlayersResource.class);
         router.attach("/player/{{name}}", PlayerResourece.class);
         router.attach("/world", WorldsResource.class);
-        return router;
     }
 }

@@ -23,7 +23,8 @@ class TestPluginStart(unittest.TestCase):
     def test_up(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/"
         result = requests.get(plugin_url).text
-        self.assertEquals("Hello MCRest.", result);
+        server = json.loads(result);
+        self.assertTrue("Bukkit" in server['name'])
 
     def test_getWorld(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
