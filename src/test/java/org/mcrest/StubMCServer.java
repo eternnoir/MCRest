@@ -1,6 +1,5 @@
 package org.mcrest;
 
-import com.sun.javafx.binding.Logging;
 import org.mcrest.entity.Player;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
