@@ -14,7 +14,7 @@ public class AuthParaTest {
     public void TestCreateAuthPara(){
         String userId = "user";
         String passwd = "pass";
-        AuthPara authp = new AuthPara(userId,passwd);
+        AuthPara authp = new AuthPara(userId,passwd,true);
         Assert.assertEquals(authp.getUserId(),userId);
         Assert.assertEquals(authp.getPassword(),passwd);
     }
@@ -23,8 +23,15 @@ public class AuthParaTest {
     public void TestAuthParaDefaultResSize(){
         String userId = "user";
         String passwd = "pass";
-        AuthPara authp = new AuthPara(userId,passwd);
+        AuthPara authp = new AuthPara(userId,passwd,true);
         Assert.assertEquals(authp.getProtectedResourceMap().values().size(),0);
+    }
+    @Test
+    public void TestEnabled(){
+        String userId = "user";
+        String passwd = "pass";
+        AuthPara authp = new AuthPara(userId,passwd,true);
+        Assert.assertEquals(authp.isEnabled(),true);
     }
 
     @Test
@@ -34,7 +41,7 @@ public class AuthParaTest {
         ArrayList<String> defaultRes = new ArrayList<String>();
         defaultRes.add("A");
         defaultRes.add("B");
-        AuthPara authp = new AuthPara(userId,passwd,defaultRes);
+        AuthPara authp = new AuthPara(userId,passwd,defaultRes,true);
         Assert.assertEquals(authp.getProtectedResourceMap().size(),2);
     }
 
@@ -47,7 +54,7 @@ public class AuthParaTest {
         defaultRes.add("A");
         defaultRes.add("B");
         defaultRes.add("B");
-        AuthPara authp = new AuthPara(userId,passwd,defaultRes);
+        AuthPara authp = new AuthPara(userId,passwd,defaultRes,true);
         Assert.assertEquals(authp.getProtectedResourceMap().size(),2);
     }
 
@@ -55,7 +62,7 @@ public class AuthParaTest {
     public void TestAddProtectedResource(){
         String userId = "user";
         String passwd = "pass";
-        AuthPara authp = new AuthPara(userId,passwd);
+        AuthPara authp = new AuthPara(userId,passwd,true);
         authp.addProtectResource("A");
         authp.addProtectResource("B");
         Assert.assertEquals(authp.getProtectedResourceMap().values().size(),2);
@@ -66,7 +73,7 @@ public class AuthParaTest {
     public void TestAddProtectedResourceDup(){
         String userId = "user";
         String passwd = "pass";
-        AuthPara authp = new AuthPara(userId,passwd);
+        AuthPara authp = new AuthPara(userId,passwd,true);
         authp.addProtectResource("A");
         authp.addProtectResource("A");
         Assert.assertEquals(authp.getProtectedResourceMap().values().size(),1);
@@ -80,7 +87,7 @@ public class AuthParaTest {
         defaultRes.add("A");
         defaultRes.add("B");
         defaultRes.add("C");
-        AuthPara authp = new AuthPara(userId,passwd,defaultRes);
+        AuthPara authp = new AuthPara(userId,passwd,defaultRes,true);
         Assert.assertEquals(authp.isProtected("A"),true);
         Assert.assertEquals(authp.isProtected("B"),true);
         Assert.assertEquals(authp.isProtected("C"),true);
@@ -93,7 +100,7 @@ public class AuthParaTest {
         ArrayList<String> defaultRes = new ArrayList<String>();
         defaultRes.add("A");
         defaultRes.add("B");
-        AuthPara authp = new AuthPara(userId,passwd,defaultRes);
+        AuthPara authp = new AuthPara(userId,passwd,defaultRes,true);
         Assert.assertEquals(authp.isProtected("A"),true);
         Assert.assertEquals(authp.isProtected("B"),true);
         Assert.assertEquals(authp.isProtected("C"),false);
