@@ -13,16 +13,17 @@ public class AuthPara {
     private String userId;
     private String password;
     private Map<String,Boolean> protectedResources;
+    private Boolean enabled;
 
-    public AuthPara(String userId,String password){
-        this.init(userId,password,new ArrayList<String>());
+    public AuthPara(String userId,String password,Boolean enabled){
+        this.init(userId,password,new ArrayList<String>(),enabled);
     }
 
-    public AuthPara(String userId,String password,Collection<String> protectedResources){
-        this.init(userId,password,protectedResources);
+    public AuthPara(String userId,String password,Collection<String> protectedResources,Boolean enabled){
+        this.init(userId,password,protectedResources,enabled);
     }
 
-    private void init(String userId,String password,Collection<String> protectedResourceList){
+    private void init(String userId,String password,Collection<String> protectedResourceList,Boolean enabled){
         this.userId = userId;
         this.password = password;
         this.protectedResources = new HashMap<String, Boolean>();
@@ -31,6 +32,7 @@ public class AuthPara {
                 this.protectedResources.put(res,true) ;
             }
         }
+        this.enabled = enabled;
     }
 
     public void addProtectResource(String resource){
@@ -57,5 +59,9 @@ public class AuthPara {
 
     public String getPassword() {
         return password;
+    }
+
+    public Boolean isEnabled() {
+        return enabled;
     }
 }
