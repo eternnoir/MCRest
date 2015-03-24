@@ -34,6 +34,10 @@ public class World implements Serializable {
         this.players =new ArrayList<Player>(PlayerHelper.convertBukkitPlayerToMcRest(world.getPlayers()));
     }
 
+    public World(String name){
+        this.name = name;
+    }
+
     public boolean isAllowAnimals() {
         return allowAnimals;
     }

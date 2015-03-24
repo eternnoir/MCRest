@@ -2,6 +2,7 @@ package org.mcrest.application;
 
 
 import org.mcrest.ConfigHandler;
+import org.mcrest.ServerManager;
 import org.mcrest.application.resources.MainResource;
 import org.mcrest.application.resources.player.PlayerResourece;
 import org.mcrest.application.resources.player.PlayersResource;
@@ -14,12 +15,24 @@ import org.restlet.routing.Router;
 import org.restlet.security.ChallengeAuthenticator;
 import org.restlet.security.MapVerifier;
 
+import java.util.logging.Logger;
+
 /**
  * Created by frank on 2015/3/3.
  */
 public class RestApplication extends Application {
     private ChallengeAuthenticator authenticatior;
     private AuthPara authpara = null;
+    private Logger logger;
+
+    public RestApplication(){
+        this.logger = ServerManager.getInstance().getServer().getLogger();
+    }
+
+    public RestApplication(AuthPara auth){
+        this.logger = ServerManager.getInstance().getServer().getLogger();
+        this.authpara = auth;
+    }
 
     @Override
     public synchronized Restlet createInboundRoot() {
@@ -52,6 +65,7 @@ public class RestApplication extends Application {
         ChallengeAuthenticator auth = createAuthenticator();
         auth.setNext(targetClass);
         router.attach(path,auth);
+        logger.info("Resource "+router+" need to auth.");
     }
 
 

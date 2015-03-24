@@ -5,6 +5,7 @@ import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
 import org.mcrest.server.IServer;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
@@ -27,7 +28,9 @@ public class StubMCServer implements IServer {
 
     @Override
     public Collection<? extends World> getWorlds() {
-        return null;
+        ArrayList<World> worlds = new ArrayList<World>();
+        worlds.add(new World("testWorld"));
+        return worlds;
     }
 
     @Override

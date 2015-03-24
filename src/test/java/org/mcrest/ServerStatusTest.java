@@ -19,12 +19,14 @@ public class ServerStatusTest {
     private Client client;
     private Component component ;
     private String serverUrl;
+    private int port = 8182;
     @Before
     public void setUp() {
+        ServerManager.getInstance().setServer(new StubMCServer());
         component = new Component();
         client =  new Client(Protocol.HTTP);
         // Add a new HTTP server listening on port 8182.
-        component.getServers().add(Protocol.HTTP, 8182);
+        component.getServers().add(Protocol.HTTP, port);
         // Attach the sample application.
         component.getDefaultHost().attach("/mcrest", new RestApplication());
         try {
@@ -32,8 +34,7 @@ public class ServerStatusTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        serverUrl = "http://127.0.0.1:8182/mcrest";
-        ServerManager.getInstance().setServer(new StubMCServer());
+        serverUrl = "http://127.0.0.1:"+port+"/mcrest";
     }
 
     @After
