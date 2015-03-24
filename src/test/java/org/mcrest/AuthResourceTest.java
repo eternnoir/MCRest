@@ -1,7 +1,6 @@
 package org.mcrest;
 
 
-import com.sun.jna.platform.win32.Winspool;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,6 +11,8 @@ import org.restlet.Client;
 import org.restlet.Component;
 import org.restlet.Request;
 import org.restlet.Response;
+import org.restlet.data.ChallengeResponse;
+import org.restlet.data.ChallengeScheme;
 import org.restlet.data.Method;
 import org.restlet.data.Protocol;
 
@@ -21,6 +22,8 @@ import java.util.ArrayList;
  * Created by frank on 2015/3/24.
  */
 public class AuthResourceTest {
+    final private String USER="test";
+    final private String PASSWORD="test";
     private String serverUrl;
     private int port = 8183;
     private Component component ;
@@ -41,7 +44,7 @@ public class AuthResourceTest {
 
     @Test
     public void authDisableTest(){
-        AuthPara auth = new AuthPara("test","test",false);
+        AuthPara auth = new AuthPara(USER,PASSWORD,false);
         Component component = new Component();
         component.getServers().add(Protocol.HTTP, port);
         component.getDefaultHost().attach("/mcrest", new RestApplication(auth));
@@ -59,7 +62,7 @@ public class AuthResourceTest {
 
     @Test
     public void authEnableAllResource(){
-        AuthPara auth = new AuthPara("test","test",genAllResoureceList(),true);
+        AuthPara auth = new AuthPara(USER,PASSWORD,genAllResoureceList(),true);
         component = new Component();
         component.getServers().add(Protocol.HTTP, port);
         component.getDefaultHost().attach("/mcrest", new RestApplication(auth));
@@ -77,11 +80,39 @@ public class AuthResourceTest {
         Assert.assertEquals(statusCode, 401);
     }
 
+    @Test
+    public void authEnableAllResourceWithAuth(){
+        AuthPara auth = new AuthPara(USER,PASSWORD,genAllResoureceList(),true);
+        component = new Component();
+        component.getServers().add(Protocol.HTTP, port);
+        component.getDefaultHost().attach("/mcrest", new RestApplication(auth));
+        try {
+            component.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Assert.fail();
+        }
+        String result = getRequestResultWithAuth("/",USER,PASSWORD).getEntityAsText();
+        Assert.assertTrue(result.contains("MCStub"));
+    }
+
     private Response getRequestResult(String path) {
         Client client =  new Client(Protocol.HTTP);
         Request request = new Request(Method.GET, serverUrl+path);
         Response response = client.handle(request);
         String s = response.getEntityAsText();
+        return response;
+    }
+
+    private Response getRequestResultWithAuth(String path,String user,String password){
+        Request request = new Request(Method.GET, serverUrl+path);
+        Client client = new Client(Protocol.HTTP);
+
+        ChallengeResponse authentication = new ChallengeResponse(
+                ChallengeScheme.HTTP_BASIC, user, password);
+        request.setChallengeResponse(authentication);
+
+        Response response = client.handle(request);
         return response;
     }
 
