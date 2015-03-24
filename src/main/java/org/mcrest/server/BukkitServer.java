@@ -46,6 +46,17 @@ public class BukkitServer implements IServer {
     }
 
     @Override
+    public Collection<? extends Player> getWhiteListPlayers() {
+        Collection<? extends org.bukkit.OfflinePlayer> offlinePlayers = Bukkit.getServer().getWhitelistedPlayers();
+        return PlayerHelper.convertBukkitPlayerToMcRest(offlinePlayers);
+    }
+
+    @Override
+    public Boolean hasWhiteList() {
+        return Bukkit.getServer().hasWhitelist();
+    }
+
+    @Override
     public Player getPlayer(String playerName) {
         OfflinePlayer bukkitPlayer = Bukkit.getOfflinePlayer(playerName);
         Player player = null;

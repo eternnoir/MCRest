@@ -38,6 +38,10 @@ public interface IServer {
      */
     public Collection<? extends Player> getOfflinePlayers();
 
+    public Collection<? extends Player> getWhiteListPlayers();
+
+    public Boolean hasWhiteList();
+
     /**
      * Get player by player name or uuid.
      * @param playerName or uuid

@@ -44,6 +44,16 @@ public class StubMCServer implements IServer {
     }
 
     @Override
+    public Collection<? extends Player> getWhiteListPlayers() {
+        return null;
+    }
+
+    @Override
+    public Boolean hasWhiteList() {
+        return null;
+    }
+
+    @Override
     public Player getPlayer(String playerName) {
         return null;
     }
