@@ -3,7 +3,6 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: "jacoco"
 
-sourceCompatibility = 1.5
 version = '0.1'
 
 
