@@ -74,7 +74,7 @@ public class RestApplication extends Application {
     private ChallengeAuthenticator createAuthenticator() {
         ChallengeAuthenticator auth= new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "mcrest");
         MapVerifier mapVerifier = new MapVerifier();
-        mapVerifier.getLocalSecrets().put("login", "secret".toCharArray());
+        mapVerifier.getLocalSecrets().put(authpara.getUserId(), authpara.getPassword().toCharArray());
         auth.setVerifier(mapVerifier);
         return auth;
     }
