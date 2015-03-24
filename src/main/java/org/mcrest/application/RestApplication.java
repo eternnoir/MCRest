@@ -36,7 +36,9 @@ public class RestApplication extends Application {
 
     @Override
     public synchronized Restlet createInboundRoot() {
-        authpara = ConfigHandler.getInstance().getAuthPara();
+        if(authpara==null) {
+            authpara = ConfigHandler.getInstance().getAuthPara();
+        }
         Router router = new Router(getContext());
         setUpRouter(router);
         return router;
