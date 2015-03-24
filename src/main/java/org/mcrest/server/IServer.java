@@ -42,6 +42,8 @@ public interface IServer {
 
     public Boolean hasWhiteList();
 
+    public void setWhiteList(Boolean enable);
+
     /**
      * Get player by player name or uuid.
      * @param playerName or uuid

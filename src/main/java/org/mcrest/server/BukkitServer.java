@@ -57,6 +57,11 @@ public class BukkitServer implements IServer {
     }
 
     @Override
+    public void setWhiteList(Boolean enable) {
+        Bukkit.getServer().setWhitelist(enable);
+    }
+
+    @Override
     public Player getPlayer(String playerName) {
         OfflinePlayer bukkitPlayer = Bukkit.getOfflinePlayer(playerName);
         Player player = null;

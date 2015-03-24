@@ -6,6 +6,7 @@ import org.mcrest.ServerManager;
 import org.mcrest.application.resources.MainResource;
 import org.mcrest.application.resources.player.PlayerResourece;
 import org.mcrest.application.resources.player.PlayersResource;
+import org.mcrest.application.resources.whitelist.WhiteListEnableResource;
 import org.mcrest.application.resources.whitelist.WhiteListResource;
 import org.mcrest.application.resources.world.WorldsResource;
 import org.mcrest.utils.AuthPara;
@@ -55,6 +56,7 @@ public class RestApplication extends Application {
         setUpAuth(router, "/player/{{name}}", "/player", PlayerResourece.class);
         setUpAuth(router, "/world", "/world", WorldsResource.class);
         setUpAuth(router, "/whitelist", "/whitelist", WhiteListResource.class);
+        setUpAuth(router, "/whitelist/enable", "/whitelist", WhiteListEnableResource.class);
     }
 
     private void setUpAuth(Router router,String path,String resourceKey,Class<? extends ServerResource> targetClass){

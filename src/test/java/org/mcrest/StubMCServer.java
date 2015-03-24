@@ -14,6 +14,8 @@ import java.util.logging.SimpleFormatter;
 
 public class StubMCServer implements IServer {
 
+    private Boolean whiteListEnable;
+
     @Override
     public ServerStatus getServerStatus() {
         ServerStatus ss = new ServerStatus();
@@ -50,7 +52,12 @@ public class StubMCServer implements IServer {
 
     @Override
     public Boolean hasWhiteList() {
-        return null;
+        return whiteListEnable;
+    }
+
+    @Override
+    public void setWhiteList(Boolean enable) {
+        this.whiteListEnable = enable;
     }
 
     @Override

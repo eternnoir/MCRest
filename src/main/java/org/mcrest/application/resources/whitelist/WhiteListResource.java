@@ -5,9 +5,13 @@ import org.mcrest.ServerManager;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.WhiteList;
 import org.mcrest.server.IServer;
+import org.restlet.data.Form;
+import org.restlet.data.MediaType;
 import org.restlet.ext.jackson.JacksonRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
+import org.restlet.resource.Post;
+import org.restlet.resource.ResourceException;
 import org.restlet.resource.ServerResource;
 
 import java.util.logging.Logger;
@@ -23,10 +27,12 @@ public class WhiteListResource  extends ServerResource {
         this.logger = ServerManager.getInstance().getServer().getLogger();
         this.server = ServerManager.getInstance().getServer();
     }
+
     @Get("json")
     public Representation getRepresentation() {
         logger.info("GET WhiteList");
         WhiteList wl = new WhiteList(server.hasWhiteList(),server.getWhiteListPlayers());
         return new JacksonRepresentation<WhiteList>(wl);
     }
+
 }
