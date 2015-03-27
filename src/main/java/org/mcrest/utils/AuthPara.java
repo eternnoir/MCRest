@@ -15,9 +15,23 @@ public class AuthPara {
     private Map<String,Boolean> protectedResources;
     private Boolean enabled;
 
+    /**
+     * Contractor without protected resource.
+     * @param userId Basic auth's id
+     * @param password Basic auth's password
+     * @param enabled Is enable auth
+     */
     public AuthPara(String userId,String password,Boolean enabled){
         this.init(userId,password,new ArrayList<String>(),enabled);
     }
+
+    /**
+     * Contractor with protected resources.
+     * @param userId Basic auth id
+     * @param password Basic auth password
+     * @param protectedResources Need login to access resource list
+     * @param enabled Is enable auth.
+     */
 
     public AuthPara(String userId,String password,Collection<String> protectedResources,Boolean enabled){
         this.init(userId,password,protectedResources,enabled);
@@ -35,6 +49,10 @@ public class AuthPara {
         this.enabled = enabled;
     }
 
+    /**
+     * Add Resource to protected.
+     * @param resource The resource key.
+     */
     public void addProtectResource(String resource){
         if(!this.protectedResources.containsKey(resource)){
             this.protectedResources.put(resource,true);
