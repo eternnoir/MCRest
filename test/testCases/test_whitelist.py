@@ -33,7 +33,6 @@ class TestWhiteList(unittest.TestCase):
         whitelistResult = self.getWhitListResult()
         self.assertTrue(whitelistResult["enabled"])
 
-
     def test_disableWhiteList(self):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
             + "whitelist/enable"

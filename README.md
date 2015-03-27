@@ -38,6 +38,13 @@ Start Server, you will see some information.
 
 Now you can ues url to get some infomation.
 
+## Resource
+
+### /player
+### /world
+### /whitelist
+### /server
+
 ### Players
 Use cUrl test.
 
