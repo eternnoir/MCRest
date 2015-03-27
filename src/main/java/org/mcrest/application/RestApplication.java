@@ -23,7 +23,6 @@ import java.util.logging.Logger;
  * Created by frank on 2015/3/3.
  */
 public class RestApplication extends Application {
-    private ChallengeAuthenticator authenticatior;
     private AuthPara authpara = null;
     private Logger logger;
 
@@ -59,6 +58,13 @@ public class RestApplication extends Application {
         setUpAuth(router, "/whitelist/enable", "/whitelist", WhiteListEnableResource.class);
     }
 
+    /**
+     * Setup Auth by AuthPara.
+     * @param router The router object.
+     * @param path Routing path.
+     * @param resourceKey Auth will use this keyword.
+     * @param targetClass ResourceClass.
+     */
     private void setUpAuth(Router router,String path,String resourceKey,Class<? extends ServerResource> targetClass){
         if(authpara == null ){
             router.attach(path,targetClass);
@@ -74,7 +80,10 @@ public class RestApplication extends Application {
         logger.info("Resource "+router+" need to auth.");
     }
 
-
+    /**
+     * Create Challengeauthenticator method.
+     * @return
+     */
     private ChallengeAuthenticator createAuthenticator() {
         ChallengeAuthenticator auth= new ChallengeAuthenticator(null, ChallengeScheme.HTTP_BASIC, "mcrest");
         MapVerifier mapVerifier = new MapVerifier();
