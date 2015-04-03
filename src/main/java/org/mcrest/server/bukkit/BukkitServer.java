@@ -1,10 +1,11 @@
-package org.mcrest.server;
+package org.mcrest.server.bukkit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.mcrest.entity.Player;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
+import org.mcrest.server.IServer;
 import org.mcrest.utils.PlayerHelper;
 import org.mcrest.utils.WorldHelper;
 
