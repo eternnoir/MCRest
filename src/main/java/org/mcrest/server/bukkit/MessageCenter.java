@@ -27,6 +27,21 @@ public class MessageCenter {
         return this.chatMessageList;
     }
 
+    /**
+     * Get number of messages. If all message number is lower than
+     * numOfMessage. It will return all message list.
+     * @param numOfMessage
+     * @return
+     */
+    public List<Message> getMessages(int numOfMessage){
+        if(this.chatMessageList.size()<numOfMessage){
+            return this.chatMessageList;
+        }
+        int fromIndex = this.chatMessageList.size()-numOfMessage;
+        return this.chatMessageList.subList(
+                fromIndex,this.chatMessageList.size());
+    }
+
     public synchronized void appendChatMessage(Message msg){
         // If message size over max. remove first message.
         if(chatMessageList.size()>maxMessageNum){

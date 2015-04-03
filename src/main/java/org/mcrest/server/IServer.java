@@ -1,10 +1,12 @@
 package org.mcrest.server;
 
+import org.mcrest.entity.Message;
 import org.mcrest.entity.Player;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -12,44 +14,46 @@ import java.util.logging.Logger;
  */
 public interface IServer {
 
-    public ServerStatus getServerStatus();
+    ServerStatus getServerStatus();
 
     /**
      * Get all players. Contain offline and online.
      * @return
      */
-    public Collection<? extends Player>  getPlayers();
+    Collection<? extends Player>  getPlayers();
 
     /**
      * Get server's world list.
      * @return worlds
      */
-    public Collection<? extends World>  getWorlds();
+    Collection<? extends World>  getWorlds();
 
     /**
      * Get online players only.
      * @return
      */
-    public Collection<? extends Player> getOnlinePlayers();
+    Collection<? extends Player> getOnlinePlayers();
 
     /**
      * Get offline players, but it will contain online player.
      * @return
      */
-    public Collection<? extends Player> getOfflinePlayers();
+    Collection<? extends Player> getOfflinePlayers();
 
-    public Collection<? extends Player> getWhiteListPlayers();
+    Collection<? extends Player> getWhiteListPlayers();
 
-    public Boolean hasWhiteList();
+    List<Message> getMessages(int numOfMessage);
 
-    public void setWhiteList(Boolean enable);
+    Boolean hasWhiteList();
+
+    void setWhiteList(Boolean enable);
 
     /**
      * Get player by player name or uuid.
      * @param playerName or uuid
      * @return Player, if not found will return null.
      */
-    public Player getPlayer(String playerName);
+    Player getPlayer(String playerName);
 
-    public Logger getLogger();
+    Logger getLogger();
 }

@@ -4,6 +4,7 @@ package org.mcrest.application;
 import org.mcrest.ConfigHandler;
 import org.mcrest.ServerManager;
 import org.mcrest.application.resources.MainResource;
+import org.mcrest.application.resources.chat.ChatResource;
 import org.mcrest.application.resources.player.PlayerResourece;
 import org.mcrest.application.resources.player.PlayersResource;
 import org.mcrest.application.resources.whitelist.WhiteListEnableResource;
@@ -56,6 +57,8 @@ public class RestApplication extends Application {
         setUpAuth(router, "/world", "/world", WorldsResource.class);
         setUpAuth(router, "/whitelist", "/whitelist", WhiteListResource.class);
         setUpAuth(router, "/whitelist/enable", "/whitelist", WhiteListEnableResource.class);
+        setUpAuth(router, "/chat", "/chat", ChatResource.class);
+        setUpAuth(router, "/chat/{{num}}", "/chat", ChatResource.class);
     }
 
     /**

@@ -1,5 +1,6 @@
 package org.mcrest;
 
+import org.mcrest.entity.Message;
 import org.mcrest.entity.Player;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
@@ -7,6 +8,7 @@ import org.mcrest.server.IServer;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,6 +17,7 @@ import java.util.logging.SimpleFormatter;
 public class StubMCServer implements IServer {
 
     private Boolean whiteListEnable;
+    private List<Message> messageList = new ArrayList<Message>();
 
     @Override
     public ServerStatus getServerStatus() {
@@ -51,6 +54,15 @@ public class StubMCServer implements IServer {
     }
 
     @Override
+    public List<Message> getMessages(int numOfMessage) {
+        if(this.messageList.size()<numOfMessage){
+            return this.messageList;
+        }else {
+            return this.messageList.subList(numOfMessage-1,messageList.size()-1);
+        }
+    }
+
+    @Override
     public Boolean hasWhiteList() {
         return whiteListEnable;
     }
@@ -73,5 +85,9 @@ public class StubMCServer implements IServer {
         handler.setFormatter(new SimpleFormatter());
         log.addHandler(handler);
         return log;
+    }
+
+    public List<Message> getMessageList() {
+        return messageList;
     }
 }

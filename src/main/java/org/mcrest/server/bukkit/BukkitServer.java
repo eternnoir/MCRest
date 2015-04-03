@@ -3,6 +3,7 @@ package org.mcrest.server.bukkit;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.mcrest.entity.Message;
 import org.mcrest.entity.Player;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
@@ -63,6 +64,11 @@ public class BukkitServer implements IServer {
     public Collection<? extends Player> getWhiteListPlayers() {
         Collection<? extends org.bukkit.OfflinePlayer> offlinePlayers = Bukkit.getServer().getWhitelistedPlayers();
         return PlayerHelper.convertBukkitPlayerToMcRest(offlinePlayers);
+    }
+
+    @Override
+    public List<Message> getMessages(int numOfMessage) {
+        return MessageCenter.getInstance().getMessages(numOfMessage);
     }
 
     @Override
