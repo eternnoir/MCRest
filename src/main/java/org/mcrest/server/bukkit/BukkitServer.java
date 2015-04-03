@@ -2,6 +2,7 @@ package org.mcrest.server.bukkit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.mcrest.entity.Player;
 import org.mcrest.entity.ServerStatus;
 import org.mcrest.entity.World;
@@ -17,6 +18,18 @@ import java.util.logging.Logger;
  * Created by frank on 2015/3/3.
  */
 public class BukkitServer implements IServer {
+
+    private JavaPlugin plugin;
+
+    public BukkitServer(JavaPlugin plugin){
+        this.plugin = plugin;
+        regListener();
+    }
+
+    private void regListener(){
+        Bukkit.getPluginManager().registerEvents(new ChatListener(plugin),plugin);
+    }
+
     @Override
     public ServerStatus getServerStatus() {
         return new ServerStatus(Bukkit.getServer());
@@ -74,6 +87,6 @@ public class BukkitServer implements IServer {
 
     @Override
     public Logger getLogger() {
-        return Bukkit.getLogger();
+        return this.plugin.getLogger();
     }
 }
