@@ -84,6 +84,7 @@ public class ConfigHandler {
         resourceList.add("/player");
         resourceList.add("/world");
         resourceList.add("/whitelist");
+        resourceList.add("/chat");
         return resourceList;
     }
 
