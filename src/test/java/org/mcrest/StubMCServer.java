@@ -58,7 +58,8 @@ public class StubMCServer implements IServer {
         if(this.messageList.size()<numOfMessage){
             return this.messageList;
         }else {
-            return this.messageList.subList(numOfMessage-1,messageList.size()-1);
+            return this.messageList.subList(
+                    this.messageList.size()-numOfMessage,messageList.size());
         }
     }
 
