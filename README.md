@@ -45,7 +45,7 @@ Now you can ues url to get some infomation.
 * /player/<playerId> - Get player data by player id.
 * /player/<uuid> - Get player data by uuid.
 ### /world
-* /world - Get  all worlds list.
+* /world - Get all worlds list.
 ### /whitelist
 ### /server
 ### /chat
