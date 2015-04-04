@@ -1,5 +1,5 @@
 # MCRest ![](https://travis-ci.org/eternnoir/MCRest.svg?branch=develop)
-Minecraft REST API Bukkit plugin.
+Minecraft REST API Bukkit plugin.This plugin let you can use RESTful API to manage your minecraft bukkit server.
 
 ## How to install
 
