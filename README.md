@@ -41,13 +41,19 @@ Now you can ues url to get some infomation.
 ## Resource
 
 ### /player
+
 * /player - Get all players list.
 * /player/<playerId> - Get player data by player id.
 * /player/<uuid> - Get player data by uuid.
+
 ### /world
+
 * /world - Get all worlds list.
+
 ### /whitelist
+
 ### /server
+
 ### /chat
 * /chat - Get last 100 chat messages.
 * /chat/<messageNum> - Get number of message.
