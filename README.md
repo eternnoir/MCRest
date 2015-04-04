@@ -23,7 +23,7 @@ $ sh ./preBuild.sh
 The MCrest plugin .jar file will store in **./build/libs/MCREST-all-*.jar**
 
 ## How to Use
-Start Server, you will see some information.
+Start Server, you will see some log messages.
 
 ```
 [11:10:14 INFO]: [McREST] Enabling McREST v0.1
