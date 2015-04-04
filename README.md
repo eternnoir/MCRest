@@ -36,7 +36,7 @@ Start Server, you will see some information.
 
 ```
 
-Now you can ues url to get some infomation.
+Now you can use url to get some information.
 
 ## Resource
 
