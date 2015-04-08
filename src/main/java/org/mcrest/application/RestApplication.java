@@ -9,6 +9,7 @@ import org.mcrest.application.resources.player.PlayerResourece;
 import org.mcrest.application.resources.player.PlayersResource;
 import org.mcrest.application.resources.whitelist.WhiteListEnableResource;
 import org.mcrest.application.resources.whitelist.WhiteListResource;
+import org.mcrest.application.resources.whitelist.WhitelistPlayerResource;
 import org.mcrest.application.resources.world.WorldsResource;
 import org.mcrest.utils.AuthPara;
 import org.restlet.*;
@@ -57,6 +58,7 @@ public class RestApplication extends Application {
         setUpAuth(router, "/world", "/world", WorldsResource.class);
         setUpAuth(router, "/whitelist", "/whitelist", WhiteListResource.class);
         setUpAuth(router, "/whitelist/enable", "/whitelist", WhiteListEnableResource.class);
+        setUpAuth(router, "/whitelist/player", "/whitelist", WhitelistPlayerResource.class);
         setUpAuth(router, "/chat", "/chat", ChatResource.class);
         setUpAuth(router, "/chat/{{num}}", "/chat", ChatResource.class);
     }

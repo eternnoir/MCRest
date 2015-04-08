@@ -43,6 +43,17 @@ class TestWhiteList(unittest.TestCase):
         whitelistResult = self.getWhitListResult()
         self.assertFalse(whitelistResult["enabled"])
 
+    def test_enablePlayer(self):
+        plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
+            + "whitelist/player"
+        payload = {'userName':'test123','enable': True}
+        result = requests.post(plugin_url,data=json.dumps( payload)).text
+        whitelist= json.loads(result)
+        self.assertEqual(whitelist["result"] , "OK")
+        whitelistResultPlayer = self.getWhitListPLayerResult()
+        self.assertEqual(len(whitelistResultPlayer),1)
+
+
     def getWhitListResult(self):
         '''
         get whitelist object
@@ -50,7 +61,19 @@ class TestWhiteList(unittest.TestCase):
         plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
             + "whitelist"
         result = requests.get(plugin_url).text
-        whitelist= json.loads(result)
-        return whitelist
+        whitelistResult= json.loads(result)
+        return whitelistResult
+
+    def getWhitListPLayerResult(self):
+        '''
+        get whitelist object
+        '''
+        plugin_url= config.PluginUrl+":"+config.PluginPort+"/"+config.PluginPrefix+"/" \
+            + "whitelist/player"
+        result = requests.get(plugin_url).text
+        whitelistResultPlayer= json.loads(result)
+        return whitelistResultPlayer
+
+
 
 

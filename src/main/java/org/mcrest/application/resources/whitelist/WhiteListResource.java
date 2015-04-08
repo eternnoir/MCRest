@@ -34,5 +34,4 @@ public class WhiteListResource  extends ServerResource {
         WhiteList wl = new WhiteList(server.hasWhiteList(),server.getWhiteListPlayers());
         return new JacksonRepresentation<WhiteList>(wl);
     }
-
 }

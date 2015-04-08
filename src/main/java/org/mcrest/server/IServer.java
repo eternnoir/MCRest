@@ -42,6 +42,8 @@ public interface IServer {
 
     Collection<? extends Player> getWhiteListPlayers();
 
+    void setPlayerToWhiteList(String userNameuuid,Boolean inWhitelist);
+
     List<Message> getMessages(int numOfMessage);
 
     Boolean hasWhiteList();
