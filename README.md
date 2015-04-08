@@ -20,7 +20,7 @@ Run build script.
 $ sh ./preBuild.sh
 ```
 
-The MCrest plugin .jar file will store in **./build/libs/MCREST-all-*.jar**
+The MCrest plugin .jar file will store in **./build/libs/MCREST-Release-*.jar**
 
 ## How to Use
 Start Server, you will see some log messages.
