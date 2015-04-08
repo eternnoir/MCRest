@@ -52,6 +52,8 @@ class TestWhiteList(unittest.TestCase):
         self.assertEqual(whitelist["result"] , "OK")
         whitelistResultPlayer = self.getWhitListPLayerResult()
         self.assertEqual(len(whitelistResultPlayer),1)
+        self.assertEqual(whitelistResultPlayer[0]['name'],'test123')
+        self.assertEqual(whitelistResultPlayer[0]['whitelisted'],True)
 
 
     def getWhitListResult(self):
