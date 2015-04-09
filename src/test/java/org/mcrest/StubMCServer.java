@@ -54,6 +54,11 @@ public class StubMCServer implements IServer {
     }
 
     @Override
+    public void setPlayerToWhiteList(String userNameuuid, Boolean inWhitelist) {
+
+    }
+
+    @Override
     public List<Message> getMessages(int numOfMessage) {
         if(this.messageList.size()<numOfMessage){
             return this.messageList;
