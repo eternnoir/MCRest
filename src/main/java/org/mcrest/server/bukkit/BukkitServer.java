@@ -14,8 +14,10 @@ import org.mcrest.utils.WorldHelper;
 import java.util.*;
 import java.util.logging.Logger;
 
+
 /**
- * The Server bukkit version,
+ * The Server implement bukkit version, it will get information by
+ * real minecraft server.
  * Created by frank on 2015/3/3.
  */
 public class BukkitServer implements IServer {
